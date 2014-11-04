@@ -7,3 +7,5 @@ class Avaliacao(models.Model):
 	peso = models.DecimalField(max_digits=10, decimal_places=3)
 	altura = models.DecimalField(max_digits=10, decimal_places=3)
 	resultado = models.DecimalField(max_digits=10, decimal_places=3)
+
+class Usuario(AbstractUser):
