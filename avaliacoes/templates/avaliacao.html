@@ -1,13 +1,12 @@
-<html>
-    <head></head>
-    <body>
+{% extends 'base.html' %}
+
+{% block conteudo %}
         <h1>Avaliacao</h1><br/><br/>
 
         <form action="/salvar/" method="POST">
         {% csrf_token %}
         {{ form.as_p }} <br/>
-        <input type="submit" value="Calcular" />
+        <input type="submit" value="Calcular" class="btn btn-success" />
         </form>
 
-    </body>
-<html>
+ {%endblock conteudo %}

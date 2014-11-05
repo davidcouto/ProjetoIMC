@@ -1,7 +1,8 @@
-<html>
-    <head></head>
-    <body>
-        <h1>Calculo de IMC</h1><br/><br/>
+{% extends 'base.html' %}
+
+{% block conteudo %}
+            <div class="col-sm-12" align="center">
+                       <h1>Calculo de IMC</h1><br/><br/>
 
         {% if user.is_authenticated %}
         <br/>
@@ -13,12 +14,12 @@
         <a href="/cadastroUsuario/">Cadastre-se<a/><br/><br/>
         {% endif %}
 
-        <h1>Login</h1>
+        <br/>
         <form action="/login/" method="POST">
         {% csrf_token %}
         {{ form.as_p }} <br/>
-        <input type="submit" value="Entrar" />
+        <input type="submit" value="Entrar" class="btn btn-primary" />
         </form>
 
-    </body>
-<html>
+            </div>
+{%endblock conteudo %}
