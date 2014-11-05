@@ -14,7 +14,7 @@
         {% endif %}
 
         <h1>Login</h1>
-        <form action="/validar_cadastro/" method="POST">
+        <form action="/login/" method="POST">
         {% csrf_token %}
         {{ form.as_p }} <br/>
         <input type="submit" value="Entrar" />
