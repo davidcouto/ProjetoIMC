@@ -10,4 +10,4 @@ class Avaliacao(models.Model):
 	resultado = models.DecimalField(max_digits=10, decimal_places=3)
 
 class Usuario(AbstractUser):
-	endereco = models.CharField(max_length=100, blank=True, null=True)
+	telefone = models.CharField(max_length=100, blank=True, null=True)
