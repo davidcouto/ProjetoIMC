@@ -8,5 +8,6 @@ urlpatterns = patterns('avaliacoes.views',
     url(r'^login/$', 'login'),
     url(r'^avaliacao/$', 'avaliacao'),
     url(r'^salvar/$', 'salvar'),
+    url(r'^fazerLogoff/$', 'fazerLogoff'),
 
 )

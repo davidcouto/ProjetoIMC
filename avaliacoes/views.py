@@ -47,3 +47,7 @@ def login(request):
 			return render(request, 'index.html', {'form': form})
 	else:
 		return HttpResponseRedirect('/')
+
+def fazerLogoff(request):
+	logout(request)
+	return HttpResponseRedirect('/')

@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-        <h1>Avaliacao</h1><br/><br/>
+        <h1>Avaliação</h1> <a href="/fazerLogoff/">Clique para Sair </a><br/><br/>
+
+        <br/>
 
         <form action="/salvar/" method="POST">
         {% csrf_token %}
