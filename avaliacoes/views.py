@@ -3,6 +3,7 @@ from avaliacoes.forms import AvaliacaoForm, LoginForm
 from django.contrib.auth import authenticate, logout, login as meu_login
 from django.contrib.auth.decorators import login_required
 from avaliacoes.models import Avaliacao, Usuario
+from decimal import Decimal
 
 def index(request):
     form = LoginForm()
@@ -26,6 +27,40 @@ def validar_cadastro(request):
 
             usuario.set_password(form.data['senha'])
             usuario.save()
+
+
+def calcular(request):
+	if request.method == 'POST':
+		form = AvaliacaoForm(request.POST)
+		altura = Decimal(form.data['altura'])
+		peso = Decimal(form.data['peso'])
+		calculo = peso / (altura * altura)
+		if calculo < 18.5:
+			resultado = 'Abaixo do peso ideal - '
+		elif calculo > 18.5 and calculo < 24.9:
+			resultado = 'Peso ideal - '
+		elif calculo > 24.9 and calculo < 29.9:
+			resultado = 'Sobrepeso - '
+		elif calculo > 29.9 and calculo < 34.9:
+			resultado = 'Obesidade Grau I - '
+		elif calculo > 34.9 and calculo < 39.9:
+			resultado = 'Obesidade Grau II - '
+		elif calculo > 39.9:
+			resultado = 'Obesidade Grau III - '
+
+		avaliacao = Avaliacao()
+		avaliacao.nome = form.data['nome']
+		avaliacao.idade = form.data['idade']
+		avaliacao.sexo = form.data['sexo']
+		avaliacao.altura = altura
+		avaliacao.peso = peso
+		avaliacao.resultado = calculo
+		avaliacao.save()
+
+		return render(request, 'avaliacao.html', {'form': form, 'calculo': calculo,'resultado': resultado})
+	else:
+		form = LoginForm()
+        return render(request, 'index.html', {'form': form})
 
 
 def login(request):

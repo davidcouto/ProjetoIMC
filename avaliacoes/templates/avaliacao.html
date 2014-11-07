@@ -5,16 +5,17 @@
 
         <br/>
 
-        <form action="/salvar/" method="POST">
+        <form action="/calcular/" method="POST">
         {% csrf_token %}
         {{ form.nome.label }} <br/> {{ form.nome }} <br/>
+
         {{ form.sexo.label }} <br/> {{ form.sexo }} <br/>
         {{ form.idade.label }} <br/> {{ form.idade }} <br/>
         {{ form.peso.label }} <br/> {{ form.peso }} <br/>
         {{ form.altura.label }} <br/> {{ form.altura }} <br/>
-        {{ form.resultado.label }} <br/> {{ form.resultado }} <br/>
 
         <input type="submit" value="Calcular" class="btn btn-success" />
         </form>
+         <p>{{ resultado }} {{ calculo|floatformat:2 }} </p>
 
  {%endblock conteudo %}
