@@ -86,3 +86,6 @@ def login(request):
 def fazerLogoff(request):
 	logout(request)
 	return HttpResponseRedirect('/')
+
+def cadastroUsuario(request):
+	return render(request, 'cadastroUsuario.html')
