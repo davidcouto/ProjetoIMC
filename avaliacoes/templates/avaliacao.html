@@ -18,4 +18,33 @@
         </form>
          <p>{{ resultado }} {{ calculo|floatformat:2 }} </p>
 
+        <br/>
+
+        <div class="table-responsive">
+         <table class="table table-striped">
+           <thead>
+             <tr>
+               <th>Nome</th>
+               <th>Peso</th>
+               <th>Altura</th>
+               <th>IMC</th>
+               <th></th>
+             </tr>
+           </thead>
+           <tbody>
+           {% for avaliacao in avaliacoes %}
+             <tr>
+               <td>{{ avaliacao.nome }}</td>
+               <td>{{ avaliacao.peso }}</td>
+               <td>{{ avaliacao.altura }}</td>
+               <td>{{ avaliacao.resultado|floatformat:2 }}</td>
+               <td><a href="/apagar/{{ avaliacao.pk }}">Apagar</a></td>
+             </tr>
+           {% endfor %}  
+           </tbody>
+         </table>
+        </div>
+        
+
+
  {%endblock conteudo %}

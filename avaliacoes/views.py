@@ -13,7 +13,8 @@ def index(request):
 @login_required()
 def avaliacao(request):
 	form = AvaliacaoForm()
-	return render(request, 'avaliacao.html', {'form': form})
+	avaliacoes = Avaliacao.objects.all()
+	return render(request, 'avaliacao.html', {'form': form, 'avaliacoes': avaliacoes})
 
 
 def validar_cadastro(request):
@@ -64,6 +65,14 @@ def calcular(request):
 	else:
 		form = LoginForm()
         return render(request, 'index.html', {'form': form})
+
+def apagar(request, pk=0):
+    try:
+        avaliacao = Avaliacao.objects.get(pk=pk)
+        avaliacao.delete()
+        return HttpResponseRedirect('/avaliacao/')
+    except:
+        return HttpResponseRedirect('/avaliacao/')
 
 
 def login(request):
