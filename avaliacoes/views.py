@@ -23,10 +23,13 @@ def validar_cadastro(request):
         if form.is_valid():
             usuario = Usuario(
                 username=form.data['login'],
-                is_active=False)
+                is_active=True)
 
             usuario.set_password(form.data['senha'])
             usuario.save()
+
+            form = LoginForm()
+            return render(request, 'index.html', {'form': form})
 
 
 def calcular(request):
@@ -88,4 +91,5 @@ def fazerLogoff(request):
 	return HttpResponseRedirect('/')
 
 def cadastroUsuario(request):
-	return render(request, 'cadastroUsuario.html')
+	formLogin = LoginForm()
+	return render(request, 'cadastroUsuario.html', {'formLogin': formLogin})

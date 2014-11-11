@@ -11,5 +11,6 @@ urlpatterns = patterns('avaliacoes.views',
     url(r'^fazerLogoff/$', 'fazerLogoff'),
     url(r'^calcular/$', 'calcular'),
     url(r'^cadastroUsuario/$', 'cadastroUsuario'),
+    url(r'^validar_cadastro/$', 'validar_cadastro'),
 
 )
