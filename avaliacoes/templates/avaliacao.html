@@ -1,25 +1,28 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
+        
         <h1>Avaliação</h1> <a href="/fazerLogoff/">Clique para Sair </a><br/><br/>
-
         <br/>
-
         <form action="/calcular/" method="POST">
-        {% csrf_token %}
-        {{ form.nome.label }} <br/> {{ form.nome }} <br/>
-
-        {{ form.sexo.label }} <br/> {{ form.sexo }} <br/>
-        {{ form.idade.label }} <br/> {{ form.idade }} <br/>
-        {{ form.peso.label }} <br/> {{ form.peso }} <br/>
-        {{ form.altura.label }} <br/> {{ form.altura }} <br/>
-
-        <input type="submit" value="Calcular" class="btn btn-success" />
+          {% csrf_token %}
+          {{ form.nome.label }} <br/> {{ form.nome }} <br/>
+          {{ form.sexo.label }} <br/> {{ form.sexo }} <br/>
+          {{ form.idade.label }} <br/> {{ form.idade }} <br/>
+          {{ form.peso.label }} <br/> {{ form.peso }} <br/>
+          {{ form.altura.label }} <br/> {{ form.altura }} <br/>
+          <input type="submit" value="Calcular" class="btn btn-success" />
         </form>
-         <p>{{ resultado }} {{ calculo|floatformat:2 }} </p>
 
+        {% if resultado != None %}
+          <div class="alert alert-success alert-dismissible" role="alert" >
+           <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span>
+             <span class="sr-only">Close</span>
+           </button>
+           <strong>{{ resultado }} {{ calculo|floatformat:2 }}</strong>
+          </div>
+        {% endif %}
         <br/>
-
         <div class="table-responsive">
          <table class="table table-striped">
            <thead>
@@ -38,13 +41,12 @@
                <td>{{ avaliacao.peso }}</td>
                <td>{{ avaliacao.altura }}</td>
                <td>{{ avaliacao.resultado|floatformat:2 }}</td>
-               <td><a href="/apagar/{{ avaliacao.pk }}">Apagar</a></td>
+               <td><a href="/apagar/{{ avaliacao.pk }}"><span class="glyphicon glyphicon-remove" title="Apagar"></span></a>
+               </td>
              </tr>
            {% endfor %}  
            </tbody>
          </table>
         </div>
-        
-
 
  {%endblock conteudo %}

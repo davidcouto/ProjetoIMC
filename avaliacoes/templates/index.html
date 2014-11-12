@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-            <div class="col-sm-12" align="center">
-                       <h1>Cálculo de IMC</h1><br/><br/>
 
-        
-        <a href="/cadastroUsuario/">Cadastre-se<a/><br/><br/>
-        
+  <div class="col-sm-12" align="center">
+    <h1>Cálculo de IMC</h1><br/><br/>
+    <a href="/cadastroUsuario/">Cadastre-se<a/><br/><br/>
+    <br/>
+    <form action="/login/" method="POST">
+      {% csrf_token %}
+      {{ form.as_p }} <br/>
+      <input type="submit" value="Entrar" class="btn btn-primary" />
+    </form>
+  </div>
 
-        <br/>
-        <form action="/login/" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }} <br/>
-        <input type="submit" value="Entrar" class="btn btn-primary" />
-        </form>
-
-            </div>
 {%endblock conteudo %}

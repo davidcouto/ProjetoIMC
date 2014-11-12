@@ -5,16 +5,12 @@ history.back();
 
 {% block conteudo %}
 
-
-
-<h1>Cadastro de Usuário</h1><a href="javascript:history.back(1);">Voltar</a> <br/><br/>
-
-<br/>
-
-<form action="/validar_cadastro/" method="POST">
-{% csrf_token %}
-{{ formLogin.as_p }} <br/>
-<input type="submit" value="Cadastrar" class="btn btn-success" />
-</form>
+  <h1>Cadastro de Usuário</h1><a href="javascript:history.back(1);">Voltar</a> <br/><br/>
+  <br/>
+  <form action="/validar_cadastro/" method="POST">
+   {% csrf_token %}
+   {{ formLogin.as_p }} <br/>
+   <input type="submit" value="Cadastrar" class="btn btn-success" />
+  </form>
 
 {%endblock conteudo %}

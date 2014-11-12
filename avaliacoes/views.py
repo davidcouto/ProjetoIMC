@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from avaliacoes.models import Avaliacao, Usuario
 from decimal import Decimal
 
+
 def index(request):
     form = LoginForm()
     return render(request, 'index.html', {'form': form})
@@ -13,7 +14,8 @@ def index(request):
 @login_required()
 def avaliacao(request):
 	form = AvaliacaoForm()
-	avaliacoes = Avaliacao.objects.all()
+	login = request.session.get('login')
+	avaliacoes = Avaliacao.objects.filter(login=login)
 	return render(request, 'avaliacao.html', {'form': form, 'avaliacoes': avaliacoes})
 
 
@@ -34,37 +36,46 @@ def validar_cadastro(request):
 
 
 def calcular(request):
+	login = request.session.get('login')
+	avaliacoes = Avaliacao.objects.filter(login=login)
 	if request.method == 'POST':
 		form = AvaliacaoForm(request.POST)
-		altura = Decimal(form.data['altura'])
-		peso = Decimal(form.data['peso'])
-		calculo = peso / (altura * altura)
-		if calculo < 18.5:
-			resultado = 'Abaixo do peso ideal - '
-		elif calculo > 18.5 and calculo < 24.9:
-			resultado = 'Peso ideal - '
-		elif calculo > 24.9 and calculo < 29.9:
-			resultado = 'Sobrepeso - '
-		elif calculo > 29.9 and calculo < 34.9:
-			resultado = 'Obesidade Grau I - '
-		elif calculo > 34.9 and calculo < 39.9:
-			resultado = 'Obesidade Grau II - '
-		elif calculo > 39.9:
-			resultado = 'Obesidade Grau III - '
+		if form.data['altura'] != '' and form.data['peso'] != '':
+			altura = Decimal(form.data['altura'])
+			peso = Decimal(form.data['peso'])
+			calculo = peso / (altura * altura)
+			if calculo < 18.5:
+				resultado = 'Abaixo do peso ideal - '
+			elif calculo > 18.5 and calculo < 24.9:
+				resultado = 'Peso ideal - '
+			elif calculo > 24.9 and calculo < 29.9:
+				resultado = 'Sobrepeso - '
+			elif calculo > 29.9 and calculo < 34.9:
+				resultado = 'Obesidade Grau I - '
+			elif calculo > 34.9 and calculo < 39.9:
+				resultado = 'Obesidade Grau II - '
+			elif calculo > 39.9:
+				resultado = 'Obesidade Grau III - '
 
-		avaliacao = Avaliacao()
-		avaliacao.nome = form.data['nome']
-		avaliacao.idade = form.data['idade']
-		avaliacao.sexo = form.data['sexo']
-		avaliacao.altura = altura
-		avaliacao.peso = peso
-		avaliacao.resultado = calculo
-		avaliacao.save()
-
-		return render(request, 'avaliacao.html', {'form': form, 'calculo': calculo,'resultado': resultado})
+			avaliacao = Avaliacao()
+			avaliacao.nome = form.data['nome']
+			avaliacao.idade = form.data['idade']
+			avaliacao.sexo = form.data['sexo']
+			avaliacao.altura = altura
+			avaliacao.peso = peso
+			avaliacao.resultado = calculo
+			avaliacao.login = login
+			avaliacao.save()
+			form = AvaliacaoForm()
+			return render(request, 'avaliacao.html', {'form': form, 'calculo': calculo,'resultado': resultado, 'avaliacoes': avaliacoes})
+		else:
+			form = AvaliacaoForm()
+			resultado = 'Informe o peso e a altura'
+			return render(request, 'avaliacao.html', {'form': form, 'resultado': resultado, 'avaliacoes': avaliacoes})
 	else:
 		form = LoginForm()
         return render(request, 'index.html', {'form': form})
+
 
 def apagar(request, pk=0):
     try:
@@ -85,6 +96,7 @@ def login(request):
 			if pessoa is not None:
 				if pessoa.is_active:
 					meu_login(request, pessoa)
+					request.session['login'] = form.data['login']
 					return HttpResponseRedirect('/avaliacao/')
 				else:
 					return render(request, 'index.html', {'form': form})
@@ -95,9 +107,11 @@ def login(request):
 	else:
 		return HttpResponseRedirect('/')
 
+
 def fazerLogoff(request):
 	logout(request)
 	return HttpResponseRedirect('/')
+
 
 def cadastroUsuario(request):
 	formLogin = LoginForm()
