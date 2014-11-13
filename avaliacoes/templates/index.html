@@ -2,14 +2,35 @@
 
 {% block conteudo %}
 
+ {% load i18n %}
+
   <div class="col-sm-12" align="center">
-    <h1>Cálculo de IMC</h1><br/><br/>
-    <a href="/cadastroUsuario/">Cadastre-se<a/><br/><br/>
+    <h1>{% trans "Calculo de IMC" %}</h1><br/><br/>
+    
+    <a href="#" onclick="document.setLangEnglish.submit();return false;">English</a>
+    <form name="setLangEnglish" action="/i18n/setlang/" method="POST">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="/" />
+        <input type="hidden" name="language" value="en" />
+    </form>
+
+    <a href="#" onclick="document.setLangPortugues.submit();return false;">Português</a>
+    <form name="setLangPortugues" action="/i18n/setlang/" method="POST">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="/" />
+        <input type="hidden" name="language" value="pt-br" />
+    </form>
+
+    <br/><br/>
+    
+    <a href="/cadastroUsuario/">{% trans "Cadastre-se" %}<a/><br/><br/>    
+
     <br/>
     <form action="/login/" method="POST">
       {% csrf_token %}
-      {{ form.as_p }} <br/>
-      <input type="submit" value="Entrar" class="btn btn-primary" />
+      {% trans "Usuario" %} <br/> {{ form.login }} <br/>
+      {% trans "Senha" %} <br/> {{ form.senha }} <br/>
+      <input type="submit" value={% trans "Entrar" %} class="btn btn-primary" />
     </form>
   </div>
 

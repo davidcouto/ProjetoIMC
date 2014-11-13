@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-13 19:34-0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\avaliacoes\views.py:49
+msgid "Abaixo do peso ideal - "
+msgstr "Underweight - "
+
+#: .\avaliacoes\views.py:51
+msgid "Peso ideal - "
+msgstr "Ideal weight - "
+
+#: .\avaliacoes\views.py:53
+msgid "Sobrepeso - "
+msgstr "Overweight - "
+
+#: .\avaliacoes\views.py:55
+msgid "Obesidade Grau I - "
+msgstr "Obesity Degree I - "
+
+#: .\avaliacoes\views.py:57
+msgid "Obesidade Grau II - "
+msgstr "Obesity Degree II - "
+
+#: .\avaliacoes\views.py:59
+msgid "Obesidade Grau III - "
+msgstr "Obesity Degree III - "
+
+#: .\avaliacoes\views.py:74
+msgid "Informe o peso e a altura"
+msgstr "Enter the weight and height"
+
+#: .\avaliacoes\templates\avaliacao.html:6
+msgid "Avaliacao"
+msgstr "Evaluation"
+
+#: .\avaliacoes\templates\avaliacao.html:6
+msgid "Clique para Sair"
+msgstr "Click to Exit"
+
+#: .\avaliacoes\templates\avaliacao.html:10
+#: .\avaliacoes\templates\avaliacao.html:31
+msgid "Nome"
+msgstr "Name"
+
+#: .\avaliacoes\templates\avaliacao.html:11
+msgid "Sexo"
+msgstr "Sex"
+
+#: .\avaliacoes\templates\avaliacao.html:12
+msgid "Idade"
+msgstr "Age"
+
+#: .\avaliacoes\templates\avaliacao.html:13
+#: .\avaliacoes\templates\avaliacao.html:32
+msgid "Peso"
+msgstr "Weight"
+
+#: .\avaliacoes\templates\avaliacao.html:14
+#: .\avaliacoes\templates\avaliacao.html:33
+msgid "Altura"
+msgstr "Height"
+
+#: .\avaliacoes\templates\avaliacao.html:15
+msgid "Calcular"
+msgstr "Calculate"
+
+#: .\avaliacoes\templates\cadastroUsuario.html:9
+msgid "Cadastro de Usuário"
+msgstr "Registration of User"
+
+#: .\avaliacoes\templates\cadastroUsuario.html:9
+msgid "Voltar"
+msgstr "Back"
+
+#: .\avaliacoes\templates\cadastroUsuario.html:13
+#: .\avaliacoes\templates\index.html:30
+msgid "Usuario"
+msgstr "User"
+
+#: .\avaliacoes\templates\cadastroUsuario.html:14
+#: .\avaliacoes\templates\index.html:31
+msgid "Senha"
+msgstr "Password"
+
+#: .\avaliacoes\templates\cadastroUsuario.html:15
+msgid "Cadastrar"
+msgstr "Register"
+
+#: .\avaliacoes\templates\index.html:7
+msgid "Calculo de IMC"
+msgstr "IMC Calculation"
+
+#: .\avaliacoes\templates\index.html:25
+msgid "Cadastre-se"
+msgstr "Sign-up"
+
+#: .\avaliacoes\templates\index.html:32
+msgid "Entrar"
+msgstr "Enter"

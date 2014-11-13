@@ -13,5 +13,6 @@ urlpatterns = patterns('avaliacoes.views',
     url(r'^cadastroUsuario/$', 'cadastroUsuario'),
     url(r'^validar_cadastro/$', 'validar_cadastro'),
     url(r'^apagar/(?P<pk>\d+)/$', 'apagar'),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 
 )

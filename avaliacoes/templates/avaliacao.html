@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
+
+ {% load i18n %}
         
-        <h1>Avaliação</h1> <a href="/fazerLogoff/">Clique para Sair </a><br/><br/>
+        <h1>{% trans "Avaliacao" %}</h1> <a href="/fazerLogoff/">{% trans "Clique para Sair" %}</a><br/><br/>
         <br/>
         <form action="/calcular/" method="POST">
           {% csrf_token %}
-          {{ form.nome.label }} <br/> {{ form.nome }} <br/>
-          {{ form.sexo.label }} <br/> {{ form.sexo }} <br/>
-          {{ form.idade.label }} <br/> {{ form.idade }} <br/>
-          {{ form.peso.label }} <br/> {{ form.peso }} <br/>
-          {{ form.altura.label }} <br/> {{ form.altura }} <br/>
-          <input type="submit" value="Calcular" class="btn btn-success" />
+          {% trans "Nome" %} <br/> {{ form.nome }} <br/>
+          {% trans "Sexo" %} <br/> {{ form.sexo }} <br/>
+          {% trans "Idade" %} <br/> {{ form.idade }} <br/>
+          {% trans "Peso" %} <br/> {{ form.peso }} <br/>
+          {% trans "Altura" %} <br/> {{ form.altura }} <br/>
+          <input type="submit" value={% trans "Calcular" %} class="btn btn-success" />
         </form>
 
         {% if resultado != None %}
@@ -27,9 +29,9 @@
          <table class="table table-striped">
            <thead>
              <tr>
-               <th>Nome</th>
-               <th>Peso</th>
-               <th>Altura</th>
+               <th>{% trans "Nome" %}</th>
+               <th>{% trans "Peso" %}</th>
+               <th>{% trans "Altura" %}</th>
                <th>IMC</th>
                <th></th>
              </tr>
@@ -41,7 +43,7 @@
                <td>{{ avaliacao.peso }}</td>
                <td>{{ avaliacao.altura }}</td>
                <td>{{ avaliacao.resultado|floatformat:2 }}</td>
-               <td><a href="/apagar/{{ avaliacao.pk }}"><span class="glyphicon glyphicon-remove" title="Apagar"></span></a>
+               <td><a href="/apagar/{{ avaliacao.pk }}"><span class="glyphicon glyphicon-remove"></span></a>
                </td>
              </tr>
            {% endfor %}  

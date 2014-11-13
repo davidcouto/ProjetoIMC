@@ -5,12 +5,15 @@ history.back();
 
 {% block conteudo %}
 
-  <h1>Cadastro de Usuário</h1><a href="javascript:history.back(1);">Voltar</a> <br/><br/>
+ {% load i18n %}
+
+  <h1>{% trans "Cadastro de Usuário" %}</h1><a href="javascript:history.back(1);">{% trans "Voltar" %}</a> <br/><br/>
   <br/>
   <form action="/validar_cadastro/" method="POST">
    {% csrf_token %}
-   {{ formLogin.as_p }} <br/>
-   <input type="submit" value="Cadastrar" class="btn btn-success" />
+   {% trans "Usuario" %} <br/> {{ formLogin.login }} <br/>
+   {% trans "Senha" %} <br/> {{ formLogin.senha }} <br/>
+   <input type="submit" value={% trans "Cadastrar" %} class="btn btn-success" />
   </form>
 
 {%endblock conteudo %}

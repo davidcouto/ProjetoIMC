@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, logout, login as meu_login
 from django.contrib.auth.decorators import login_required
 from avaliacoes.models import Avaliacao, Usuario
 from decimal import Decimal
+from django.utils.translation import ugettext_lazy as _
 
 
 def index(request):
@@ -45,17 +46,17 @@ def calcular(request):
 			peso = Decimal(form.data['peso'])
 			calculo = peso / (altura * altura)
 			if calculo < 18.5:
-				resultado = 'Abaixo do peso ideal - '
+				resultado = _('Abaixo do peso ideal - ')
 			elif calculo > 18.5 and calculo < 24.9:
-				resultado = 'Peso ideal - '
+				resultado = _('Peso ideal - ')
 			elif calculo > 24.9 and calculo < 29.9:
-				resultado = 'Sobrepeso - '
+				resultado = _('Sobrepeso - ')
 			elif calculo > 29.9 and calculo < 34.9:
-				resultado = 'Obesidade Grau I - '
+				resultado = _('Obesidade Grau I - ')
 			elif calculo > 34.9 and calculo < 39.9:
-				resultado = 'Obesidade Grau II - '
+				resultado = _('Obesidade Grau II - ')
 			elif calculo > 39.9:
-				resultado = 'Obesidade Grau III - '
+				resultado = _('Obesidade Grau III - ')
 
 			avaliacao = Avaliacao()
 			avaliacao.nome = form.data['nome']
@@ -70,7 +71,7 @@ def calcular(request):
 			return render(request, 'avaliacao.html', {'form': form, 'calculo': calculo,'resultado': resultado, 'avaliacoes': avaliacoes})
 		else:
 			form = AvaliacaoForm()
-			resultado = 'Informe o peso e a altura'
+			resultado = _('Informe o peso e a altura')
 			return render(request, 'avaliacao.html', {'form': form, 'resultado': resultado, 'avaliacoes': avaliacoes})
 	else:
 		form = LoginForm()
