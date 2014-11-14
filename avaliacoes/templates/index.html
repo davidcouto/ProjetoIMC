@@ -7,7 +7,7 @@
   <div class="col-sm-12" align="center">
     <h1>{% trans "Calculo de IMC" %}</h1><br/><br/>
     
-    <a href="#" onclick="document.setLangEnglish.submit();return false;"><img src="{{ STATIC_URL }}img/usa_flag.png" title="English"></a> <a href="#" onclick="document.setLangPortugues.submit();return false;"><img src="{{ STATIC_URL }}img/bra_flag.png" title="Portugues"></a>
+    <a href="#" onclick="document.setLangEnglish.submit();return false;"><img src="https://cdn2.iconfinder.com/data/icons/fatcow/32x32/flag_usa.png" title="English"></a> <a href="#" onclick="document.setLangPortugues.submit();return false;"><img src="https://cdn2.iconfinder.com/data/icons/fatcow/32x32/flag_brazil.png" title="Portugues"/></a>
     <form name="setLangEnglish" action="/i18n/setlang/" method="POST">
         {% csrf_token %}
         <input name="next" type="hidden" value="/" />
