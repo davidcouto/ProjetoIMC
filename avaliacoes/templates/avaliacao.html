@@ -4,15 +4,15 @@
 
  {% load i18n %}
         
-        <h1>{% trans "Avaliacao" %}</h1> <a href="/fazerLogoff/">{% trans "Clique para Sair" %}</a><br/><br/>
+        <h1>{% trans "Avaliacao" %}</h1> <a href="/fazerLogoff/"><strong>{% trans "Clique para Sair" %}</strong></a><br/><br/>
         <br/>
         <form action="/calcular/" method="POST">
           {% csrf_token %}
-          {% trans "Nome" %} <br/> {{ form.nome }} <br/>
-          {% trans "Sexo" %} <br/> {{ form.sexo }} <br/>
-          {% trans "Idade" %} <br/> {{ form.idade }} <br/>
-          {% trans "Peso" %} <br/> {{ form.peso }} <br/>
-          {% trans "Altura" %} <br/> {{ form.altura }} <br/>
+          <strong>{% trans "Nome" %}</strong> <br/> {{ form.nome }} <br/>
+          <strong>{% trans "Sexo" %}</strong> <br/> {{ form.sexo }} <br/>
+          <strong>{% trans "Idade" %}</strong> <br/> {{ form.idade }} <br/>
+          <strong>{% trans "Peso" %}</strong> <br/> {{ form.peso }} <br/>
+          <strong>{% trans "Altura" %}</strong> <br/> {{ form.altura }} <br/>
           <input type="submit" value={% trans "Calcular" %} class="btn btn-success" />
         </form>
 

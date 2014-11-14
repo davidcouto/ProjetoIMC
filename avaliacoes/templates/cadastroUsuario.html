@@ -7,12 +7,13 @@ history.back();
 
  {% load i18n %}
 
-  <h1>{% trans "Cadastro de Usuário" %}</h1><a href="javascript:history.back(1);">{% trans "Voltar" %}</a> <br/><br/>
+  <h1>{% trans "Cadastro de Usuário" %}</h1><a href="javascript:history.back(1);"><strong>{% trans "Voltar" %}</strong></a> 
+  <br/><br/>
   <br/>
   <form action="/validar_cadastro/" method="POST">
    {% csrf_token %}
-   {% trans "Usuario" %} <br/> {{ formLogin.login }} <br/>
-   {% trans "Senha" %} <br/> {{ formLogin.senha }} <br/>
+   <strong>{% trans "Usuario" %}</strong> <br/> {{ formLogin.login }} <br/>
+   <strong>{% trans "Senha" %}</strong> <br/> {{ formLogin.senha }} <br/>
    <input type="submit" value={% trans "Cadastrar" %} class="btn btn-success" />
   </form>
 

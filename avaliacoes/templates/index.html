@@ -7,29 +7,29 @@
   <div class="col-sm-12" align="center">
     <h1>{% trans "Calculo de IMC" %}</h1><br/><br/>
     
-    <a href="#" onclick="document.setLangEnglish.submit();return false;">English</a>
+    <a href="#" onclick="document.setLangEnglish.submit();return false;"><img src="{{ STATIC_URL }}img/usa_flag.png" title="English"></a>    <a href="#" onclick="document.setLangPortugues.submit();return false;"><img src="{{ STATIC_URL }}img/bra_flag.png" title="Portugues"></a>
     <form name="setLangEnglish" action="/i18n/setlang/" method="POST">
         {% csrf_token %}
         <input name="next" type="hidden" value="/" />
         <input type="hidden" name="language" value="en" />
     </form>
 
-    <a href="#" onclick="document.setLangPortugues.submit();return false;">Português</a>
+ 
     <form name="setLangPortugues" action="/i18n/setlang/" method="POST">
         {% csrf_token %}
         <input name="next" type="hidden" value="/" />
         <input type="hidden" name="language" value="pt-br" />
     </form>
 
-    <br/><br/>
+    <br/>
     
-    <a href="/cadastroUsuario/">{% trans "Cadastre-se" %}<a/><br/><br/>    
+    <a href="/cadastroUsuario/"><strong>{% trans "Cadastre-se" %}</strong></a><br/><br/>    
 
     <br/>
     <form action="/login/" method="POST">
       {% csrf_token %}
-      {% trans "Usuario" %} <br/> {{ form.login }} <br/>
-      {% trans "Senha" %} <br/> {{ form.senha }} <br/>
+      <strong>{% trans "Usuario" %}</strong> <br/> {{ form.login }} <br/>
+      <strong>{% trans "Senha" %}</strong><br/> {{ form.senha }} <br/>
       <input type="submit" value={% trans "Entrar" %} class="btn btn-primary" />
     </form>
   </div>
