@@ -12,7 +12,7 @@ history.back();
   <br/>
   <form action="/validar_cadastro/" method="POST">
    {% csrf_token %}
-   <strong>{% trans "Usuario" %}</strong> <br/> {{ formLogin.login }} <br/>
+   <strong>{% trans "Usuário" %}</strong> <br/> {{ formLogin.login }} <br/>
    <strong>{% trans "Senha" %}</strong> <br/> {{ formLogin.senha }} <br/>
    <input type="submit" value={% trans "Cadastrar" %} class="btn btn-success" />
   </form>

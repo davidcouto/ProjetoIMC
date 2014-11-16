@@ -46,17 +46,17 @@ def calcular(request):
 			peso = Decimal(form.data['peso'])
 			calculo = peso / (altura * altura)
 			if calculo < 18.5:
-				resultado = _('Abaixo do peso ideal - ')
+				resultado = _('IMC: Abaixo do peso ideal - ')
 			elif calculo > 18.5 and calculo < 24.9:
-				resultado = _('Peso ideal - ')
+				resultado = _('IMC: Peso ideal - ')
 			elif calculo > 24.9 and calculo < 29.9:
-				resultado = _('Sobrepeso - ')
+				resultado = _('IMC: Sobrepeso - ')
 			elif calculo > 29.9 and calculo < 34.9:
-				resultado = _('Obesidade Grau I - ')
+				resultado = _('IMC: Obesidade Grau I - ')
 			elif calculo > 34.9 and calculo < 39.9:
-				resultado = _('Obesidade Grau II - ')
+				resultado = _('IMC: Obesidade Grau II - ')
 			elif calculo > 39.9:
-				resultado = _('Obesidade Grau III - ')
+				resultado = _('IMC: Obesidade Grau III - ')
 
 			avaliacao = Avaliacao()
 			avaliacao.nome = form.data['nome']

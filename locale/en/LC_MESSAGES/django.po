@@ -17,35 +17,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: .\avaliacoes\views.py:49
-msgid "Abaixo do peso ideal - "
-msgstr "Underweight - "
+msgid "IMC: Abaixo do peso ideal - "
+msgstr "IMC: Underweight - "
 
 #: .\avaliacoes\views.py:51
-msgid "Peso ideal - "
-msgstr "Ideal weight - "
+msgid "IMC: Peso ideal - "
+msgstr "IMC: Ideal weight - "
 
 #: .\avaliacoes\views.py:53
-msgid "Sobrepeso - "
-msgstr "Overweight - "
+msgid "IMC: Sobrepeso - "
+msgstr "IMC: Overweight - "
 
 #: .\avaliacoes\views.py:55
-msgid "Obesidade Grau I - "
-msgstr "Obesity Degree I - "
+msgid "IMC: Obesidade Grau I - "
+msgstr "IMC: Obesity Degree I - "
 
 #: .\avaliacoes\views.py:57
-msgid "Obesidade Grau II - "
-msgstr "Obesity Degree II - "
+msgid "IMC: Obesidade Grau II - "
+msgstr "IMC: Obesity Degree II - "
 
 #: .\avaliacoes\views.py:59
-msgid "Obesidade Grau III - "
-msgstr "Obesity Degree III - "
+msgid "IMC: Obesidade Grau III - "
+msgstr "IMC: Obesity Degree III - "
 
 #: .\avaliacoes\views.py:74
 msgid "Informe o peso e a altura"
 msgstr "Enter the weight and height"
 
 #: .\avaliacoes\templates\avaliacao.html:6
-msgid "Avaliacao"
+msgid "Avaliação"
 msgstr "Evaluation"
 
 #: .\avaliacoes\templates\avaliacao.html:6
@@ -89,7 +89,7 @@ msgstr "Back"
 
 #: .\avaliacoes\templates\cadastroUsuario.html:13
 #: .\avaliacoes\templates\index.html:30
-msgid "Usuario"
+msgid "Usuário"
 msgstr "User"
 
 #: .\avaliacoes\templates\cadastroUsuario.html:14
@@ -102,7 +102,7 @@ msgid "Cadastrar"
 msgstr "Register"
 
 #: .\avaliacoes\templates\index.html:7
-msgid "Calculo de IMC"
+msgid "Cálculo de IMC"
 msgstr "IMC Calculation"
 
 #: .\avaliacoes\templates\index.html:25

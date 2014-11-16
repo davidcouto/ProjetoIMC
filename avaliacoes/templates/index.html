@@ -5,7 +5,7 @@
  {% load i18n %}
 
   <div class="col-sm-12" align="center">
-    <h1>{% trans "Calculo de IMC" %}</h1><br/><br/>
+    <h1>{% trans "Cálculo de IMC" %}</h1><br/><br/>
     
     <a href="#" onclick="document.setLangEnglish.submit();return false;"><img src="https://cdn2.iconfinder.com/data/icons/fatcow/32x32/flag_usa.png" title="English"></a> <a href="#" onclick="document.setLangPortugues.submit();return false;"><img src="https://cdn2.iconfinder.com/data/icons/fatcow/32x32/flag_brazil.png" title="Portugues"/></a>
     <form name="setLangEnglish" action="/i18n/setlang/" method="POST">
@@ -28,7 +28,7 @@
     <br/>
     <form action="/login/" method="POST">
       {% csrf_token %}
-      <strong>{% trans "Usuario" %}</strong> <br/> {{ form.login }} <br/>
+      <strong>{% trans "Usuário" %}</strong> <br/> {{ form.login }} <br/>
       <strong>{% trans "Senha" %}</strong><br/> {{ form.senha }} <br/>
       <input type="submit" value={% trans "Entrar" %} class="btn btn-primary" />
     </form>
